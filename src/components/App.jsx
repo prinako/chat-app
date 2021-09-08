@@ -1,13 +1,9 @@
 import React from "react";
-
+import Login from "./Login";
 
 function App() {
   return (
-    <div className="">
-      <header className="App-header">
-        <p>Hello Chat App</p>
-      </header>
-    </div>
+    <Login />
   );
 }
 
