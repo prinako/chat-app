@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Button from "./Utilities/Button";
-import Input from "./Utilities/Input";
+import Button from "./utilities/Button";
+import Input from "./utilities/Input";
 
 function Login() {
   const [HaveAccount, setHaveAccount] = useState(true);
