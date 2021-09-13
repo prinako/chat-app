@@ -4,11 +4,15 @@ import MessageBubble from "./MessageBubble";
 export default function MessageContainer(props) {
   const isMessage = props.mes;
   return (
-    <div className="message">
+    <React.StrictMode>
       Right siad
       {isMessage.map((mes, index) => {
-        return <MessageBubble key={index} id={index} mes={mes} />;
+        return (
+          <div className="message">
+            <MessageBubble key={index} id={index} mes={mes} />
+          </div>
+        );
       })}
-    </div>
+    </React.StrictMode>
   );
 }

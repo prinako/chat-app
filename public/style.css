@@ -16,7 +16,7 @@ a:hover {
 }
 
 body {
-  overflow: hidden;
+  height: 100vh;
   background-color: #F8F0DF;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -48,32 +48,30 @@ body {
 }
 
 .chat-container {
-  display: grid;
-  grid-template-rows: 0.5fr 5fr;
+  height: 100vh;
   border: solid;
   background-color: #fff;
-  height: 100vh;
 }
 
 .chat-wrapper {
+  height: 90vh;
   border: solid red;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  height: 35rem;
 }
 
 .chat-contact {
+  height: 89vh;
   background-color: aquamarine;
 }
 
 .message-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  height: 89vh;
+  border: solid yellow;
 }
 
 .message-head {
+  height: 9.5vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   background-color: black;
@@ -81,36 +79,60 @@ body {
 }
 
 .message-wrapper {
-  width: 100%;
-  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: calc(89vh - 4.2rem);
   border: solid;
   overflow: auto;
 }
 
-.message {}
-
-.mes-bubble-container {
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  width: 50%;
-  min-height: 3rem;
-  background-color: rgb(173, 165, 182);
+.send-wrapper {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  width: 100%;
+  border: solid red;
 }
 
-.mes-bubble {}
-
 .send-container {
-  position: fixed;
-  bottom: 1rem;
-  height: 3rem;
-  width: 25rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 4rem;
   background-color: black;
 }
 
-.send-wrapper {
+.send-btn {
+  right: 5px;
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+.message {
+}
+
+.mes-bubble-container {
+  border: solid;
+  margin-bottom: 0.5rem;
   width: 100%;
 }
+
+.mes-bubble {
+  min-height: 1rem;
+  padding: 0.5rem;
+  min-width: 1px;
+  text-align: right;
+  margin-left: 50%;
+  word-wrap: break-word;
+  border-radius: 0.5rem;
+  background-color: rgb(173, 165, 182);
+}
+
+
 
 textarea {
   border-radius: 20px;
@@ -128,15 +150,7 @@ textarea:focus {
   border: none;
 }
 
-.btn {
-  position: absolute;
-  right: 5px;
-  border: none;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  cursor: pointer;
-}
+
 
 .form-container {
   border-radius: 0.5rem;

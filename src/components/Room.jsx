@@ -14,9 +14,9 @@ export default function Room(props) {
   return (
     <div className="message-container">
       <div className="message-wrapper">
-        <MessageContainer mes={isMessage} />;
+        <MessageContainer mes={isMessage} />
       </div>
-      <WriteSend onChange={handleOnChange} className="btn" text="send" />
+      <WriteSend onChange={handleOnChange} className="send-btn" text="send" />
     </div>
   );
 }
