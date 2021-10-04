@@ -1,16 +1,16 @@
 import React from "react";
-import Menu from "./Menu";
-import Room from "./Room";
-import ChatHeader from "./utilities/ChatHeader";
+import ContactContainer from "./ContactContainer";
+import ChatContainer from "./ChatContainer";
+import Navbar from "./Navbar";
 
 export default function Chat(props) {
   return (
     <React.StrictMode>
-      <div className="chat-container">
-          <ChatHeader className="message-head pd-05" />
-        <div className="chat-wrapper">
-          <Menu />
-          <Room />
+      <div className="container">
+        <Navbar className="" />
+        <div className="msg-arear">
+          <ContactContainer />
+          <ChatContainer />
         </div>
       </div>
     </React.StrictMode>

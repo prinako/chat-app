@@ -12,9 +12,13 @@ export default function Room(props) {
   }
 
   return (
-    <div className="message-container">
-      <div className="message-wrapper">
-        <MessageContainer mes={isMessage} />
+    <div className="msg-container">
+      <div className="chat-arear">
+        <MessageContainer
+          className="text-msg-wrapper-sended"
+          classSender="message-bubble-sended"
+          mes={isMessage}
+        />
       </div>
       <WriteSend onChange={handleOnChange} className="send-btn" text="send" />
     </div>

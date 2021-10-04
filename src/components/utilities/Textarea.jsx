@@ -11,6 +11,7 @@ export default function Textarea(props) {
       onChange={onChange}
       value={props.value}
       className={props.className}
+      placeholder={props.placeHolder}
     ></textarea>
   );
 }

@@ -8,8 +8,8 @@ export default function MessageContainer(props) {
       Right siad
       {isMessage.map((mes, index) => {
         return (
-          <div className="message">
-            <MessageBubble key={index} id={index} mes={mes} />
+          <div className={`message-bubble ${props.classSender}`}>
+            <MessageBubble className={props.className} key={index} id={index} mes={mes} />
           </div>
         );
       })}
