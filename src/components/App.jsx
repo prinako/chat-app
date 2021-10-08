@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Login from "./Login";
+import Chat from "./Chat";
 
 function App() {
+  const [isLogin, setLogin] = useState(true);
+
+  function handleLogin() {
+    setLogin((prevState) => !prevState);
+  }
+
   return (
-    <Login />
+    <React.StrictMode>
+      {isLogin ? (
+        <Chat onLogin={handleLogin} />
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
+    </React.StrictMode>
   );
 }
 
