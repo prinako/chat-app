@@ -3,6 +3,23 @@
   padding: 0;
   margin: 0;
 }
+:root {
+  --navbar-color: #152D35;
+  --text-color-1: #fff;
+  --back-color-contact: #345B63;
+  --backg-color-input-container: #D4ECDD;
+  --backg-color-chat-arear: #F3F1F5;
+  --sender-text-color: #C8C6C6;
+  --cancel-btn-backg: #FF4848;
+  --cancel-btn-backg-on-hover: #FE8F8F;
+  --add-btn-backg: #5de08f;
+  --add-btn-backg-on-hover: #97e0b3;
+  --notifiy-err-backg: #FCD2D1;
+  --notifiy-msg-backg: #DFEEEA;
+  --chat-background-image: url("https://www.transparenttextures.com/patterns/connected.png");
+  --contact-background-image: url("https://www.transparenttextures.com/patterns/az-subtle.png");
+
+}
 
 a {
   display: inline-block;
@@ -40,7 +57,16 @@ body {
 .wt-100 {
   width: 100%;
 }
-
+.navbar {
+  background-color: var(--navbar-color);
+  color: var(--text-color-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 4rem;
+  gap: .5rem;
+}
 .container {
   display: flex;
   justify-self: center;
