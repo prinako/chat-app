@@ -6,6 +6,7 @@
 /.pnp
 .pnp.js
 
+
 # testing
 /coverage
 
@@ -24,3 +25,5 @@ yarn-debug.log*
 yarn-error.log*
 
 README.old.md
+
+.env
