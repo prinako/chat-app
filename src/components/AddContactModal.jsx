@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import Input from "./Input";
-import Button from "./Button";
+import Input from "../utilities/Input";
+import Button from "../utilities/Button";
 import { useContacts } from "../contexts/ContactsProvider";
 
 export default function AddContactModal({ closeAddContactModal }) {
@@ -45,7 +45,7 @@ export default function AddContactModal({ closeAddContactModal }) {
             />
           </div>
           <div className="add-btn-container">
-            <div onClick={closeAddContactModal} className="btn cancel-btn">
+            <div role="button" onClick={closeAddContactModal} className="btn cancel-btn">
               Cancel
             </div>
             <Button type="submit" className="btn add-btn" text="Add" />

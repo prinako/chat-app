@@ -39,7 +39,9 @@ body {
 .mt-2 {
   margin-top: 2rem;
 }
-
+.ml-05{
+ margin-left: .5rem;
+}
 .btn {
   padding: 0.5rem;
   border: none;
@@ -123,7 +125,7 @@ body {
 .all-groups span,
 .all-msg span {
   margin-right: .5rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .input-container,
@@ -322,7 +324,7 @@ body {
 .contact-wrapper {
   background-color: var(--back-color-contact);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
 }
 

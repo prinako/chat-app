@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CreateGroup from "../utilities/CreateGroup";
 import ContactHeadBar from "../utilities/ContactHeadBar";
 import DisplayAllContact from "./DisplayAllContact";
-import AddContactModal from "../utilities/AddContactModal";
+import AddContactModal from "./AddContactModal";
 
 export default function ContactContainer() {
   const [showAddModal, setShowAddModal] = useState(false);
