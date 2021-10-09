@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./utilities/Button";
+import Button from "../utilities/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import CallIcon from "@mui/icons-material/Call";

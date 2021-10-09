@@ -1,14 +1,30 @@
-import React from "react";
-import CreateGroup from "./utilities/CreateGroup";
-import ContactHeadBar from "./utilities/ContactHeadBar";
+import React, { useState } from "react";
+import CreateGroup from "../utilities/CreateGroup";
+import ContactHeadBar from "../utilities/ContactHeadBar";
 import DisplayAllContact from "./DisplayAllContact";
+import AddContactModal from "../utilities/AddContactModal";
 
 export default function ContactContainer() {
+  const [showAddModal, setShowAddModal] = useState(false);
+
+  function handleOntoggle() {
+    setShowAddModal((prev) => !prev);
+  }
+
+  const contactDashboad = (
+    <React.StrictMode>
+      <ContactHeadBar />
+      <DisplayAllContact />
+      <CreateGroup openAddContactModal={handleOntoggle} />
+    </React.StrictMode>
+  );
   return (
     <div className="contact-container show">
-      <ContactHeadBar/>
-      <DisplayAllContact/>
-      <CreateGroup />
+      {showAddModal ? (
+        <AddContactModal closeAddContactModal={handleOntoggle} />
+      ) : (
+        contactDashboad
+      )}
     </div>
   );
 }

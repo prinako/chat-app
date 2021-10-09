@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 
 export default function Chat(props) {
   return (
-    <React.StrictMode>
       <div className="container">
         <Navbar className="" />
         <div className="msg-arear">
@@ -13,6 +12,5 @@ export default function Chat(props) {
           <ChatContainer />
         </div>
       </div>
-    </React.StrictMode>
   );
 }
