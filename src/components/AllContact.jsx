@@ -2,7 +2,7 @@ import React from "react";
 import ContactBubble from "../utilities/ContactBubble";
 import { useContacts } from "../contexts/ContactsProvider";
 
-export default function DisplayAllContact() {
+export default function AllContact() {
   const { contacts } = useContacts();
 
   return (
