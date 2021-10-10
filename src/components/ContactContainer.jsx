@@ -1,21 +1,28 @@
 import React, { useState } from "react";
 import CreateGroup from "./CreateGroup";
-import ContactHeadBar from "../utilities/ContactHeadBar";
+import ContactHeadBar from "./ContactHeadBar";
 import UserId from "../utilities/UserId";
 import AllContact from "./AllContact";
 import Groups from "./Groups";
 import Conversations from "./Conversations";
 import AddContactModal from "./AddContactModal";
+import NewConversation from "./NewConversation";
 
 export default function ContactContainer({ id }) {
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showConversationModal, setShowConversationModal] = useState(false);
+  const [showGroupModal, setShowGroupModal] = useState(false);
 
   const [displayConversation, setDisplayConversation] = useState(true);
   const [displayGroup, setDisplayGroup] = useState(false);
   const [displayContact, setDisplayContact] = useState(false);
 
-  function handleOntoggle() {
+  function handleOnAddModal() {
     setShowAddModal((prev) => !prev);
+  }
+
+  function handleOnConversationModal() {
+    setShowConversationModal((prev) => !prev);
   }
 
   function handleDisplayConverstion() {
@@ -56,7 +63,8 @@ export default function ContactContainer({ id }) {
       {displayConversation && <UserId id={id} />}
 
       <CreateGroup
-        openAddContactModal={handleOntoggle}
+        openAddContactModal={handleOnAddModal}
+        openConversationMdal={handleOnConversationModal}
         activeConversation={displayConversation}
         activeGroup={displayGroup}
         activeContact={displayContact}
@@ -69,11 +77,13 @@ export default function ContactContainer({ id }) {
         displayConversation && "on-conversation"
       }`}
     >
-      {showAddModal ? (
-        <AddContactModal closeAddContactModal={handleOntoggle} />
-      ) : (
-        contactDashboad
+      {showAddModal && (
+        <AddContactModal closeAddContactModal={handleOnAddModal} />
       )}
+      {showConversationModal && (
+        <NewConversation closeConversationModal={handleOnConversationModal} />
+      )}
+      {contactDashboad}
     </div>
   );
 }

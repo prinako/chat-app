@@ -10,7 +10,6 @@ export default function AddContactModal({ closeAddContactModal }) {
 
   function handleOnSubmit(e) {
     e.preventDefault();
-    console.log(userNameRef.current.value, userIdRef.current.value);
     createNewContact(userIdRef.current.value, userNameRef.current.value);
 
     closeAddContactModal();

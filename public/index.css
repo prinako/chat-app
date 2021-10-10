@@ -596,6 +596,39 @@ body {
 }
 
 
+.conversation-container {
+  background-color: var(--back-color-contact);
+  display: grid;
+  grid-template-rows: .5fr 5fr .5fr;
+  height: calc(100vh - 4rem);
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+}
+
+.conversation-container .hist-contacts {
+  background-color: var(--backg-color-chat-arear);
+}
+
+.conversation-btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: .5rem 0;
+}
+.conversation-btn-container .cancel-btn{
+  border-radius:.5rem;
+  width:  calc(100% - 10rem);
+  font-size: 1.2rem;
+}
+
+.conversation-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ color: var(--text-color-1);
+ font-size:1.2rem;
+}
 @media screen and (min-width: 800px) {
   .msg-arear {
     grid-template-columns: 1.5fr 3fr;

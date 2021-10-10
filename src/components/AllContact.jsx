@@ -8,7 +8,7 @@ export default function AllContact() {
   return (
     <div className="hist-contacts">
       {contacts.map((contact) => {
-        return <ContactBubble key={contact.id} contact={contact.name} />;
+        return <ContactBubble role="button" key={contact.id} contact={contact.name} />;
       })}
     </div>
   );

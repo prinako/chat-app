@@ -5,6 +5,7 @@ import AddCommentIcon from '@mui/icons-material/AddComment';
 
 export default function CreateGroup({
   openAddContactModal,
+  openConversationMdal,
   activeConversation,
   activeGroup,
   activeContact,
@@ -12,7 +13,7 @@ export default function CreateGroup({
   return (
     <div className="create-group-container">
       {activeConversation && (
-        <div className="add-contact" onClick={openAddContactModal}>
+        <div className="add-contact" onClick={openConversationMdal}>
           <AddCommentIcon /> <span className="ml-05">New Conversation</span>
         </div>
       )}
