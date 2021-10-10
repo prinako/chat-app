@@ -3,16 +3,15 @@ import ContactContainer from "./ContactContainer";
 import ChatContainer from "./ChatContainer";
 import Navbar from "./Navbar";
 
-export default function Chat(props) {
+
+export default function Chat({id}) {
   return (
-    <React.StrictMode>
       <div className="container">
         <Navbar className="" />
         <div className="msg-arear">
-          <ContactContainer />
+          <ContactContainer id={id}/>
           <ChatContainer />
         </div>
       </div>
-    </React.StrictMode>
   );
 }

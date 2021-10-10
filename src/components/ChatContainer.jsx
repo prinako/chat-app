@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import MessageContainer from "./utilities/MessageContainer";
-import WriteSend from "./utilities/WriteSend";
+import MessageContainer from "../utilities/MessageContainer";
+import WriteSend from "../utilities/WriteSend";
 
 export default function Room(props) {
   const [isMessage, setMessage] = useState([]);
