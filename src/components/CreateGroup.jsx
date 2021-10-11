@@ -1,11 +1,11 @@
 import React from "react";
 import ContactsIcon from "@mui/icons-material/Contacts";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import AddCommentIcon from '@mui/icons-material/AddComment';
+import AddCommentIcon from "@mui/icons-material/AddComment";
 
 export default function CreateGroup({
   openAddContactModal,
-  openConversationMdal,
+  openConversationModal,
   activeConversation,
   activeGroup,
   activeContact,
@@ -13,8 +13,8 @@ export default function CreateGroup({
   return (
     <div className="create-group-container">
       {activeConversation && (
-        <div className="add-contact" onClick={openConversationMdal}>
-          <AddCommentIcon /> <span className="ml-05">New Conversation</span>
+        <div className="icon-bobble" onClick={openConversationModal}>
+          <AddCommentIcon />
         </div>
       )}
       {activeGroup && (
@@ -23,8 +23,8 @@ export default function CreateGroup({
         </div>
       )}
       {activeContact && (
-        <div className="add-contact" onClick={openAddContactModal}>
-          <ContactsIcon /> <span className="ml-05">Add Contact</span>
+        <div className="icon-bobble" onClick={openAddContactModal}>
+          <ContactsIcon />
         </div>
       )}
     </div>

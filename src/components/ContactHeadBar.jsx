@@ -19,7 +19,7 @@ export default function ContactHeadBar({
           activeGroup && "border-radius-bottom-r"
         }`}
       >
-        <ForumIcon /> <span className="ml-05">All</span>
+        <ForumIcon /> <span className="ml-05">Chats</span>
       </div>
       <div
         onClick={group}
@@ -28,14 +28,6 @@ export default function ContactHeadBar({
         } ${activeContact && "border-radius-bottom-r"}`}
       >
         <GroupsIcon /> <span className="ml-05">Groups</span>
-      </div>
-      <div
-        onClick={contact}
-        className={`all-groups ${activeContact && "active"} ${
-          activeGroup && "border-radius-bottom-l"
-        }`}
-      >
-        <RecentActorsIcon /> <span className="ml-05">Contacts</span>
       </div>
     </div>
   );

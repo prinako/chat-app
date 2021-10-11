@@ -25,7 +25,7 @@ export default function ContactContainer({ id }) {
     setShowConversationModal((prev) => !prev);
   }
 
-  function handleDisplayConverstion() {
+  function handleDisplayConversation() {
     setDisplayConversation(true);
 
     displayGroup && setDisplayGroup(false);
@@ -46,10 +46,10 @@ export default function ContactContainer({ id }) {
     displayContact && setDisplayContact(false);
   }
 
-  const contactDashboad = (
+  const contactDashboard = (
     <React.StrictMode>
       <ContactHeadBar
-        conversation={handleDisplayConverstion}
+        conversation={handleDisplayConversation}
         activeConversation={displayConversation}
         group={handleDisplayGroup}
         activeGroup={displayGroup}
@@ -64,7 +64,7 @@ export default function ContactContainer({ id }) {
 
       <CreateGroup
         openAddContactModal={handleOnAddModal}
-        openConversationMdal={handleOnConversationModal}
+        openConversationModal={handleOnConversationModal}
         activeConversation={displayConversation}
         activeGroup={displayGroup}
         activeContact={displayContact}
@@ -78,12 +78,19 @@ export default function ContactContainer({ id }) {
       }`}
     >
       {showAddModal && (
-        <AddContactModal closeAddContactModal={handleOnAddModal} />
+        <AddContactModal
+          closeAddContactModal={handleOnAddModal}
+          openAddContactModal={handleOnAddModal}
+          openConversationModal={handleOnConversationModal}
+        />
       )}
       {showConversationModal && (
-        <NewConversation closeConversationModal={handleOnConversationModal} />
+        <NewConversation
+          closeConversationModal={handleOnConversationModal}
+          openAddContactModal={handleOnAddModal}
+        />
       )}
-      {contactDashboad}
+      {contactDashboard}
     </div>
   );
 }

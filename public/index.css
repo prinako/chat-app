@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
   margin: 0;
@@ -7,28 +7,27 @@
 }
 
 :root {
-  --navbar-color: #152D35;
+  --navbar-color: #152d35;
   --text-color-1: #fff;
-  --back-color-contact: #345B63;
-  --backg-color-input-container: #D4ECDD;
-  --backg-color-chat-arear: #F3F1F5;
-  --sender-text-color: #C8C6C6;
-  --cancel-btn-backg: #FF4848;
-  --cancel-btn-backg-on-hover: #FE8F8F;
+  --back-color-contact: #345b63;
+  --backg-color-input-container: #d4ecdd;
+  --backg-color-chat-arear: #f3f1f5;
+  --sender-text-color: #c8c6c6;
+  --cancel-btn-backg: #ff4848;
+  --cancel-btn-backg-on-hover: #fe8f8f;
   --add-btn-backg: #5de08f;
   --add-btn-backg-on-hover: #97e0b3;
-  --notifiy-err-backg: #FCD2D1;
-  --notifiy-msg-backg: #DFEEEA;
+  --notifiy-err-backg: #fcd2d1;
+  --notifiy-msg-backg: #dfeeea;
   --bottom-line-color: #acacac;
   --chat-background-image: url("https://www.transparenttextures.com/patterns/connected.png");
   --contact-background-image: url("https://www.transparenttextures.com/patterns/az-subtle.png");
-
 }
 
 html {
   overflow: hidden;
   height: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -41,7 +40,7 @@ body {
 }
 
 .ml-05 {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
 .active {
@@ -51,17 +50,17 @@ body {
 }
 
 .active::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: var(--text-color-1) !important;
-  border-radius: .7rem .7rem 0 0;
+  border-radius: 0.7rem 0.7rem 0 0;
   z-index: -2;
 }
 
 .on-conversation {
-  grid-template-rows: 0.5fr 5fr .3fr .5fr !important;
+  grid-template-rows: 0.5fr 5fr 0.3fr !important;
 }
 
 .user-ID {
@@ -73,16 +72,35 @@ body {
 }
 
 .user-ID span {
-  padding-left: .5rem;
+  padding-left: 0.5rem;
   color: var(--bottom-line-color);
 }
 
 .border-radius-bottom-l {
-  border-radius: 0 0 0 .7rem !important;
+  border-radius: 0 0 0 0.7rem !important;
 }
 
 .border-radius-bottom-r {
   border-radius: 0 0 0.7rem 0 !important;
+}
+
+.icon-bobble {
+  align-items: center;
+  background-color: var(--back-color-contact);
+  border-radius: 50%;
+  color: var(--text-color-1);
+  display: flex;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  position: absolute;
+  padding: 1rem;
+  right: 1rem;
+  bottom: 5rem;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .btn {
@@ -116,12 +134,13 @@ body {
   justify-content: center;
   max-width: 450px;
 
-  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.164), 1px 3px 3px rgba(0, 0, 0, 0.103), 1px 4px 2px rgba(0, 0, 0, 0.041);
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.164), 1px 3px 3px rgba(0, 0, 0, 0.103),
+    1px 4px 2px rgba(0, 0, 0, 0.041);
 }
 
 .notifiy-err p {
   font-size: 17px;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .notifiy-err-color-red {
@@ -137,7 +156,6 @@ body {
 .selected {
   position: relative;
   overflow: hidden;
-
 }
 
 .selected::before {
@@ -150,15 +168,14 @@ body {
 .add-contact span,
 .all-groups span,
 .all-msg span {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   font-size: 1.2rem;
 }
 
 .input-container,
 .navbar,
 .cont-body-container {
-  padding: .5rem;
-
+  padding: 0.5rem;
 }
 
 .msg-arear,
@@ -221,7 +238,6 @@ body {
 
 .form-control:focus {
   border: solid #082032 1px;
-
 }
 
 .form-btn {
@@ -262,7 +278,7 @@ body {
   align-items: center;
   width: 100%;
   height: 4rem;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .menu {
@@ -293,6 +309,7 @@ body {
 }
 
 .brand {
+  margin-left: 1.5rem;
   color: var(--text-color-1);
 }
 
@@ -302,7 +319,7 @@ body {
   align-items: center;
   margin-left: auto;
   gap: 1rem;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   height: 100%;
   transition: all 500ms ease-in-out;
 }
@@ -321,9 +338,11 @@ body {
   font-size: 18px;
 }
 
-.call-btn-video {}
+.call-btn-video {
+}
 
-.call-btn-voice {}
+.call-btn-voice {
+}
 
 .msg-arear {
   display: grid;
@@ -332,7 +351,7 @@ body {
 
 .contact-container {
   display: grid;
-  grid-template-rows: 0.5fr 5fr .5fr;
+  grid-template-rows: 0.5fr 5fr 0.5fr;
   width: 100%;
   position: absolute;
   transition: 500ms all ease-in-out;
@@ -350,7 +369,7 @@ body {
 .contact-wrapper {
   background-color: var(--text-color-1);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .all-msg,
@@ -365,10 +384,6 @@ body {
   align-items: center;
   text-align: center;
 }
-
-
-
-
 
 .create-group-container {
   display: grid;
@@ -395,17 +410,17 @@ body {
   width: 100%;
   height: calc(100vh - 4rem);
   transition: all 200ms ease-in;
+  z-index: 3;
 }
-
 
 .add-wrapper {
   background-color: var(--backg-color-input-container);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   width: calc(100% - 2rem);
   transition: all 200ms ease-in;
 }
 
-.add-container.show-add-modal>.add-wrapper {
+.add-container.show-add-modal > .add-wrapper {
   opacity: 1;
 }
 
@@ -427,7 +442,7 @@ body {
 
 .add-input-container input {
   border: none;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 17px;
   height: 3rem;
@@ -479,7 +494,7 @@ body {
 .cont-body-container {
   background-color: var(--text-color-1);
   border-bottom: solid 1px var(--bottom-line-color);
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   height: 4rem;
   cursor: pointer;
 }
@@ -526,7 +541,7 @@ body {
 
 .message-bubble {
   width: 100%;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .text-msg-wrapper-sended {
@@ -539,11 +554,11 @@ body {
 }
 
 .text-msg-wrapper {
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   display: inline-block;
   min-width: 3.5rem;
   max-width: 70%;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .text-msg-wrapper .text-message,
@@ -574,7 +589,7 @@ body {
 .input {
   border: 1px solid var(--back-color-contact);
   border-radius: 1rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   width: 80%;
   font-size: 14px;
   outline: none;
@@ -595,15 +610,18 @@ body {
   height: 3rem;
 }
 
-
 .conversation-container {
   background-color: var(--back-color-contact);
-  display: grid;
-  grid-template-rows: .5fr 5fr .5fr;
   height: calc(100vh - 4rem);
   width: 100%;
   position: absolute;
   z-index: 3;
+}
+.conversation-wrapper {
+  display: grid;
+  grid-template-rows: 0.5fr 5fr;
+  position: relative;
+  height: 100%;
 }
 
 .conversation-container .hist-contacts {
@@ -611,24 +629,26 @@ body {
 }
 
 .conversation-btn-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: .5rem 0;
+  display: none;
 }
-.conversation-btn-container .cancel-btn{
-  border-radius:.5rem;
-  width:  calc(100% - 10rem);
+.conversation-btn-container .cancel-btn {
+  border-radius: 0.5rem;
+  width: calc(100% - 10rem);
   font-size: 1.2rem;
 }
 
-.conversation-title{
+.conversation-title {
   display: flex;
-  justify-content: center;
   align-items: center;
- color: var(--text-color-1);
- font-size:1.2rem;
+  color: var(--text-color-1);
+  font-size: 1.2rem;
 }
+
+.conversation-title button {
+  width: 4rem;
+  height: 100%;
+}
+
 @media screen and (min-width: 800px) {
   .msg-arear {
     grid-template-columns: 1.5fr 3fr;
@@ -638,7 +658,7 @@ body {
     position: static;
     transform: translateX(0);
     opacity: 1;
-    pointer-events: unset
+    pointer-events: unset;
   }
 
   .menu {
@@ -648,5 +668,17 @@ body {
   .all-msg:hover,
   .all-groups:hover {
     background-color: var(--navbar-color);
+  }
+  .conversation-wrapper {
+    grid-template-rows: 0.5fr 5fr 0.5fr;
+  }
+  .conversation-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+  .conversation-title button {
+    color: transparent;
   }
 }

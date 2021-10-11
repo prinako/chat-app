@@ -7,7 +7,6 @@ import CallIcon from "@mui/icons-material/Call";
 export default function Navbar(props) {
   return (
     <div className="navbar">
-      <Button className={`btn ${props.className}`} text={<ArrowBackIcon />} />
       <div className="brand">
         <span className="text">Connect ME</span>
       </div>

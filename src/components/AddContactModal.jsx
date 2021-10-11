@@ -3,7 +3,10 @@ import Input from "../utilities/Input";
 import Button from "../utilities/Button";
 import { useContacts } from "../contexts/ContactsProvider";
 
-export default function AddContactModal({ closeAddContactModal }) {
+export default function AddContactModal({
+  closeAddContactModal,
+  openConversationModal,
+}) {
   const userNameRef = useRef();
   const userIdRef = useRef();
   const { createNewContact } = useContacts();
@@ -13,6 +16,7 @@ export default function AddContactModal({ closeAddContactModal }) {
     createNewContact(userIdRef.current.value, userNameRef.current.value);
 
     closeAddContactModal();
+    openConversationModal();
   }
 
   return (
@@ -44,7 +48,14 @@ export default function AddContactModal({ closeAddContactModal }) {
             />
           </div>
           <div className="add-btn-container">
-            <div role="button" onClick={closeAddContactModal} className="btn cancel-btn">
+            <div
+              role="button"
+              onClick={() => {
+                closeAddContactModal();
+                openConversationModal();
+              }}
+              className="btn cancel-btn"
+            >
               Cancel
             </div>
             <Button type="submit" className="btn add-btn" text="Add" />

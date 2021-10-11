@@ -3,8 +3,13 @@ import ContactBubble from "../utilities/ContactBubble";
 import { useContacts } from "../contexts/ContactsProvider";
 import { useConversations } from "../contexts/ConversationsProvider";
 import Button from "../utilities/Button";
+import ContactsIcon from "@mui/icons-material/Contacts";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-export default function NewConversation({ closeConversationModal }) {
+export default function NewConversation({
+  closeConversationModal,
+  openAddContactModal,
+}) {
   const [selectedContactIds, setSelectedContactIds] = useState([]);
   const { contacts } = useContacts();
   const { createNewConversation } = useConversations();
@@ -30,28 +35,44 @@ export default function NewConversation({ closeConversationModal }) {
 
   return (
     <div className="conversation-container">
-      <div className="conversation-title">New Conversation</div>
-      <div className="hist-contacts">
-        {contacts.map((contact) => {
-          return (
-            <ContactBubble
-              onClick={() => {
-                console.log(contact.id);
-                handleOnClick(contact.id);
-              }}
-              role="button"
-              key={contact.id}
-              contact={contact.name}
-            />
-          );
-        })}
-      </div>
-      <div className="conversation-btn-container">
-        <Button
-          onClick={closeConversationModal}
-          className="btn cancel-btn"
-          text="Cancel"
-        />
+      <div className="conversation-wrapper">
+        <div className="conversation-title">
+          <Button onClick={closeConversationModal} className={`btn`} text={<ArrowBackIcon />} />
+          <div className="brand">
+            <span className="text">New Conversation</span>
+          </div>
+        </div>
+        <div
+          className="icon-bobble"
+          onClick={() => {
+            openAddContactModal();
+            closeConversationModal();
+          }}
+        >
+          <ContactsIcon />
+        </div>
+        <div className="hist-contacts">
+          {contacts.map((contact) => {
+            return (
+              <ContactBubble
+                onClick={() => {
+                  console.log(contact.id);
+                  handleOnClick(contact.id);
+                }}
+                role="button"
+                key={contact.id}
+                contact={contact.name}
+              />
+            );
+          })}
+        </div>
+        <div className="conversation-btn-container">
+          <Button
+            onClick={closeConversationModal}
+            className="btn cancel-btn"
+            text="Cancel"
+          />
+        </div>
       </div>
     </div>
   );
