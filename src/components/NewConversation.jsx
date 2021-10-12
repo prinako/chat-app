@@ -3,8 +3,8 @@ import ContactBubble from "../utilities/ContactBubble";
 import { useContacts } from "../contexts/ContactsProvider";
 import { useConversations } from "../contexts/ConversationsProvider";
 import Button from "../utilities/Button";
-import ContactsIcon from "@mui/icons-material/Contacts";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
 
 export default function NewConversation({
   closeConversationModal,
@@ -12,32 +12,48 @@ export default function NewConversation({
 }) {
   const [selectedContactIds, setSelectedContactIds] = useState([]);
   const { contacts } = useContacts();
-  const { createNewConversation } = useConversations();
+  const { conversations, createNewConversation } = useConversations();
 
   function createConversation() {
     console.log(selectedContactIds);
+    console.log("hi ", conversations.recipients)
     createNewConversation(selectedContactIds);
   }
+useEffect(()=>{
+  createNewConversation(selectedContactIds);
+},[selectedContactIds])
 
   function handleOnClick(contactid) {
+    const recipients = conversations.map(c=>c.recipients)
+    console.log("hi ", recipients)
+    console.log(recipients.includes(contactid));
     console.log(contactid);
+
     setSelectedContactIds((prevSelectedContactsIds) => {
-      if (prevSelectedContactsIds.includes(contactid)) {
-        return prevSelectedContactsIds.filter((prevId) => {
+      if (recipients.includes(contactid)) {
+        return recipients.filter((prevId) => {
+          console.log("yoo", prevId)
           return contactid !== prevId;
         });
       } else {
-        return [...prevSelectedContactsIds, contactid];
+        return [contactid];
       }
     });
-    createConversation();
+    if(selectedContactIds.length !== 0){
+    }
+    console.log("not" ,selectedContactIds.length)
+
   }
 
   return (
     <div className="conversation-container">
       <div className="conversation-wrapper">
         <div className="conversation-title">
-          <Button onClick={closeConversationModal} className={`btn`} text={<ArrowBackIcon />} />
+          <Button
+            onClick={closeConversationModal}
+            className={`btn`}
+            text={<ArrowBackIcon />}
+          />
           <div className="brand">
             <span className="text">New Conversation</span>
           </div>
@@ -49,14 +65,13 @@ export default function NewConversation({
             closeConversationModal();
           }}
         >
-          <ContactsIcon />
+          <GroupAddIcon />
         </div>
         <div className="hist-contacts">
           {contacts.map((contact) => {
             return (
               <ContactBubble
                 onClick={() => {
-                  console.log(contact.id);
                   handleOnClick(contact.id);
                 }}
                 role="button"

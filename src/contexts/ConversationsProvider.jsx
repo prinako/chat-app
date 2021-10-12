@@ -10,7 +10,7 @@ export function useConversations() {
 }
 
 export function ConversationProvider({ id, children }) {
-  const [conversations, setConversation] = useLocalStorage("conversation", []);
+  const [conversations, setConversations] = useLocalStorage("conversation", []);
   const [selectedConversationIndex, setSelectedConversationIndex] = useState(0);
 
   const { contacts } = useContacts();
@@ -18,14 +18,14 @@ export function ConversationProvider({ id, children }) {
 
   function createNewConversation(recipients) {
     console.log(recipients)
-    setConversation((prevConversations) => {
+    setConversations((prevConversations) => {
       return [...prevConversations, { recipients, messages: [] }];
     });
   }
 
   const addMessageToConversation = useCallback(
     ({ recipients, text, sender }) => {
-      setConversation((prevConversations) => {
+      setConversations((prevConversations) => {
         let madeChange = false;
 
         const newMessage = { sender, text };
@@ -40,6 +40,7 @@ export function ConversationProvider({ id, children }) {
 
           return conversation;
         });
+
         if (madeChange) {
           return newConversations;
         } else {
@@ -47,18 +48,16 @@ export function ConversationProvider({ id, children }) {
         }
       });
     },
-    [setConversation]
+    [setConversations]
   );
 
   useEffect(() => {
-    console.log(socket)
     if (socket == null) {
       console.log("socket is null");
       return;
     }
 
     socket.on("receive-message", addMessageToConversation);
-
     return () => socket.off("receive-message");
   }, [socket, addMessageToConversation]);
 
