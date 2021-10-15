@@ -11,7 +11,7 @@ export function useGroups() {
 
 export function GroupsProvider({ id, children }) {
   const [groups, setGroups] = useLocalStorage("groups", []);
-  const [selectedGroupIndex, setSelectedGroupIndex] = useState(0);
+  const [selectedGroupIndex, setSelectedGroupIndex] = useState();
 
   const { contacts } = useContacts();
   const socket = useSocket();
@@ -61,7 +61,7 @@ export function GroupsProvider({ id, children }) {
     return () => socket.off("receive-message");
   }, [socket, addMessageToGroup]);
 
-  function sendMessage(recipients, text) {
+  function sendMessageToGroup(recipients, text) {
     socket.emit("send-message", { recipients, text });
 
     addMessageToGroup({ recipients, text, sender: id });
@@ -81,8 +81,8 @@ export function GroupsProvider({ id, children }) {
         return contact.id === message.sender;
       });
       const name = (contact && contact.name) || message.sender;
-      const formMe = id === message.sender;
-      return { ...message, senderName: name, formMe };
+      const forMe = id === message.sender;
+      return { ...message, senderName: name, forMe };
     });
     const selected = index === selectedGroupIndex
     return { ...group, messages, recipients, selected };
@@ -90,7 +90,8 @@ export function GroupsProvider({ id, children }) {
 
   const value = {
     groupConversations: formattedGroups,
-    sendMessage,
+    sendMessageToGroup,
+    selectedGroup:formattedGroups[selectedGroupIndex],
     selectGroupIndex: setSelectedGroupIndex,
     createNewGroup,
   };

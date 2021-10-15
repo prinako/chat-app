@@ -15,7 +15,7 @@ export default function App() {
       <ContactsProvider>
         <GroupsProvider id={id}>
           <ConversationProvider id={id}>
-            <Chat id={id} />;
+            <Chat id={id} />
           </ConversationProvider>
         </GroupsProvider>
       </ContactsProvider>
