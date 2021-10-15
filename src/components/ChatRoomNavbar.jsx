@@ -4,20 +4,28 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import CallIcon from "@mui/icons-material/Call";
 import { useConversations } from "../contexts/ConversationsProvider";
+import { useGroups } from "../contexts/GroupsProvider";
 
-export default function Navbar(props) {
+export default function ChatRoomNavbar() {
   const { selectConversationIndex, selectedConversation } = useConversations();
+  const { selectGroupIndex, selectedGroup } = useGroups();
 
   return (
     <div className="navbar">
       <Button
-        onClick={() => selectConversationIndex("")}
+        onClick={() =>
+          selectedConversation
+            ? selectConversationIndex("")
+            : selectGroupIndex("")
+        }
         className={`btn`}
         text={<ArrowBackIcon />}
       />
       <div className="brand">
         <span className="text">
-          {selectedConversation.recipients.map((r) => r.name).join(", ")}
+          {selectedConversation
+            ? selectedConversation.recipients.map((r) => r.name).join(", ")
+            : selectedGroup.recipients.map((r) => r.name).join(", ")}
         </span>
       </div>
       <div className="call-container">

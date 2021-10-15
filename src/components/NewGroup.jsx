@@ -12,7 +12,6 @@ export default function NewGroup({ closeGroupModal }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-console.log(e)
     createNewGroup(selectedContactIds);
     closeGroupModal();
   }
@@ -48,7 +47,7 @@ console.log(e)
               return (
                 <div key={contact.id} className="checkbox-wrapper">
                   <CheckBox
-                    onChange={()=>handleOnChecked(contact.id)}
+                    onChange={() => handleOnChecked(contact.id)}
                     className="input-checkbox"
                     id={contact.id}
                     type="checkbox"
