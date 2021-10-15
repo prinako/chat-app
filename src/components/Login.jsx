@@ -1,44 +1,43 @@
-import React, { useState } from "react";
-import Button from "./utilities/Button";
-import Input from "./utilities/Input";
+import React, { useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
+import Button from "../utilities/Button";
+import Input from "../utilities/Input";
 
-function Login(props) {
+export default function Login({ onIdSubmit }) {
+  const idRef = useRef();
 
-  const [isUserNew, setUserNew] = useState(true);
+  function handleSubmit(e) {
+    e.preventDefault();
+    onIdSubmit(idRef.current.value);
+  }
 
   function handleUserNew() {
-    setUserNew(prevState => !prevState);
+    onIdSubmit(uuidv4());
   }
 
   return (
-    <div className="container">
+    <div className="login-container">
       <div className="form-container">
         <div className="form-title">
-          <h1>{isUserNew ? "Login" : "Sign Up"}</h1>
+          <h1>Login</h1>
         </div>
         <div className="form-wrapper">
-          <Input
-            className="form-control"
-            type="email"
-            placeholder={isUserNew ? "User Name or ID" : "User Name"}
-          />
-          <Input
-            className="form-control"
-            type="password"
-            placeholder="Password"
-          />
+          <form onSubmit={handleSubmit}>
+            <Input
+              refs={idRef}
+              className="form-control"
+              type="text"
+              placeholder="User ID"
+            />
+            <Button type="submit" className="form-btn" text="Login" />
+          </form>
           <Button
-            onClick={() => props.onLogin()}
             className="form-btn mt-2"
-            text={isUserNew ? "Login" : "Create"}
+            onClick={handleUserNew}
+            text="Create account"
           />
-          <button className="form-btn-link mt-2" onClick={handleUserNew}>
-            {isUserNew ? "Create account" : "Login"}
-          </button>
         </div>
       </div>
     </div>
   );
 }
-
-export default Login;

@@ -1,15 +1,24 @@
 import React from "react";
-import Button from "./utilities/Button";
+import Button from "../utilities/Button";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import CallIcon from "@mui/icons-material/Call";
+import { useConversations } from "../contexts/ConversationsProvider";
 
 export default function Navbar(props) {
+  const { selectConversationIndex, selectedConversation } = useConversations();
+
   return (
     <div className="navbar">
-      <Button className={`btn ${props.className}`} text={<ArrowBackIcon />} />
+      <Button
+        onClick={() => selectConversationIndex("")}
+        className={`btn`}
+        text={<ArrowBackIcon />}
+      />
       <div className="brand">
-        <span className="text">Connect ME</span>
+        <span className="text">
+          {selectedConversation.recipients.map((r) => r.name).join(", ")}
+        </span>
       </div>
       <div className="call-container">
         <Button

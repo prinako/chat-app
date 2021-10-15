@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import Login from "./Login";
 import Chat from "./Chat";
+import useLocalStorage from "../hooks/useLocalStorage";
+import { SocketProvider } from "../contexts/SocketProvider";
+import { ContactsProvider } from "../contexts/ContactsProvider";
+import { ConversationProvider } from "../contexts/ConversationsProvider";
+import { GroupsProvider } from "../contexts/GroupsProvider";
 
-function App() {
-  const [isLogin, setLogin] = useState(true);
+export default function App() {
+  const [id, setId] = useLocalStorage("id");
 
-  function handleLogin() {
-    setLogin((prevState) => !prevState);
-  }
-
-  return (
-    <React.StrictMode>
-      {isLogin ? (
-        <Chat onLogin={handleLogin} />
-      ) : (
-        <Login onLogin={handleLogin} />
-      )}
-    </React.StrictMode>
+  const dashboard = (
+    <SocketProvider id={id}>
+      <ContactsProvider>
+        <GroupsProvider id={id}>
+          <ConversationProvider id={id}>
+            <Chat id={id} />;
+          </ConversationProvider>
+        </GroupsProvider>
+      </ContactsProvider>
+    </SocketProvider>
   );
-}
 
-export default App;
+  return id ? dashboard : <Login onIdSubmit={setId} />;
+}
