@@ -1,17 +1,17 @@
 import React from "react";
 import ContactContainer from "./ContactContainer";
-import ChatContainer from "./ChatContainer";
-import Navbar from "./Navbar";
+import ChatRoom from "./ChatRoom";
+import { useConversations } from "../contexts/ConversationsProvider";
 
-
-export default function Chat({id}) {
+export default function Chat({ id }) {
+  const { selectedConversation } = useConversations();
+  console.log(selectedConversation)
   return (
-      <div className="container">
-        <Navbar className="" />
-        <div className="msg-arear">
-          <ContactContainer id={id}/>
-          <ChatContainer />
-        </div>
+    <div className="container">
+      <div className="msg-arear">
+        <ContactContainer id={id} />
+        {selectedConversation && <ChatRoom />}
       </div>
+    </div>
   );
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import ForumIcon from "@mui/icons-material/Forum";
 import GroupsIcon from "@mui/icons-material/Groups";
-import RecentActorsIcon from "@mui/icons-material/RecentActors";
 
 export default function ContactHeadBar({
   conversation,

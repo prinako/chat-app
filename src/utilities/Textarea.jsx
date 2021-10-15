@@ -10,8 +10,9 @@ export default function Textarea(props) {
     <textarea
       onChange={onChange}
       value={props.value}
-      className={props.className}
+      className={`input ${props.className}`}
       placeholder={props.placeHolder}
+      required={props.required}
     ></textarea>
   );
 }

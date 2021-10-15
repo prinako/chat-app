@@ -8,6 +8,8 @@ import Conversations from "./Conversations";
 import AddContactModal from "./AddContactModal";
 import NewConversation from "./NewConversation";
 import NewGroup from "./NewGroup";
+import ContactNavBar from "./ContactNavBar";
+import { useConversations } from "../contexts/ConversationsProvider";
 
 export default function ContactContainer({ id }) {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -17,7 +19,8 @@ export default function ContactContainer({ id }) {
   const [displayConversation, setDisplayConversation] = useState(true);
   const [displayGroup, setDisplayGroup] = useState(false);
   const [displayContact, setDisplayContact] = useState(false);
-
+  const { selectedConversation } = useConversations();
+  console.log(selectedConversation);
   function handleOnAddModal() {
     setShowAddModal((prev) => !prev);
   }
@@ -26,8 +29,8 @@ export default function ContactContainer({ id }) {
     setShowConversationModal((prev) => !prev);
   }
 
-  function handleOnGroupModal(){
-    setShowGroupModal(prev => !prev);
+  function handleOnGroupModal() {
+    setShowGroupModal((prev) => !prev);
   }
 
   function handleDisplayConversation() {
@@ -53,6 +56,7 @@ export default function ContactContainer({ id }) {
 
   const contactDashboard = (
     <React.StrictMode>
+      <ContactNavBar />
       <ContactHeadBar
         conversation={handleDisplayConversation}
         activeConversation={displayConversation}
@@ -79,7 +83,7 @@ export default function ContactContainer({ id }) {
   );
   return (
     <div
-      className={`contact-container show ${
+      className={`contact-container ${!selectedConversation && "show"} ${
         displayConversation && "on-conversation"
       }`}
     >
@@ -96,9 +100,7 @@ export default function ContactContainer({ id }) {
           openAddContactModal={handleOnAddModal}
         />
       )}
-      {showGroupModal && (
-        <NewGroup closeGroupModal={handleOnGroupModal} />
-      )}
+      {showGroupModal && <NewGroup closeGroupModal={handleOnGroupModal} />}
       {contactDashboard}
     </div>
   );

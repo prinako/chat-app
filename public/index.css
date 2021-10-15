@@ -25,13 +25,12 @@
 }
 
 html {
-  overflow: hidden;
-  height: 100%;
+  height: 100vh;
+  overflow:hidden;
   font-family: "Poppins", sans-serif;
 }
 
 body {
-  overflow: hidden;
   position: relative;
 }
 
@@ -108,7 +107,7 @@ label>input[type="checkbox"]:checked+*::before {
 }
 
 .on-conversation {
-  grid-template-rows: 0.5fr 5fr 0.3fr !important;
+  /*grid-template-rows: 0.5fr 5fr 0.3fr !important;*/
 }
 
 .user-ID {
@@ -166,7 +165,7 @@ label>input[type="checkbox"]:checked+*::before {
   position: absolute;
   z-index: 4;
   top: 30px;
-  transition: all 500ms ease-in-out;
+  transition: all 100ms ease-in-out;
   transform: translateY(-100px);
   opacity: 0;
 }
@@ -229,14 +228,14 @@ label>input[type="checkbox"]:checked+*::before {
 .msg-arear,
 .contact-container,
 .msg-container {
-  height: calc(100vh - 4rem);
+  height: 100vh;
 }
 
 .login-display {
   position: absolute;
   top: 0;
   width: 100%;
-  transition: all 500ms ease-in-out;
+  transition: all 100ms ease-in-out;
   transform: scale(0, 0);
   opacity: 0;
 }
@@ -315,7 +314,7 @@ label>input[type="checkbox"]:checked+*::before {
 }
 
 .container {
-  height: 100vh;
+  height: 100%;
 }
 
 .navbar {
@@ -338,7 +337,7 @@ label>input[type="checkbox"]:checked+*::before {
   align-items: center;
   height: 3.5rem;
   width: 3.5rem;
-  transition: all 500ms ease-out;
+  transition: all 100ms ease-out;
   transform: translateX(-200px);
   pointer-events: none;
   opacity: 0;
@@ -369,7 +368,7 @@ label>input[type="checkbox"]:checked+*::before {
   gap: 1rem;
   padding: 0 0.5rem;
   height: 100%;
-  transition: all 500ms ease-in-out;
+  transition: all 100ms ease-in-out;
 }
 
 .show-call-container {
@@ -397,10 +396,10 @@ label>input[type="checkbox"]:checked+*::before {
 
 .contact-container {
   display: grid;
-  grid-template-rows: 0.5fr 5fr 0.5fr;
+  grid-template-rows: .5fr .5fr 5fr 0.5fr;
   width: 100%;
   position: absolute;
-  transition: 500ms all ease-in-out;
+  transition: 150ms all ease-in-out;
   transform: translateX(-500px);
   opacity: 0;
   pointer-events: none;
@@ -454,8 +453,8 @@ label>input[type="checkbox"]:checked+*::before {
   justify-content: center;
   position: absolute;
   width: 100%;
-  height: calc(100vh - 4rem);
-  transition: all 200ms ease-in;
+  height: 100%;
+  transition: all 100ms ease-in;
   z-index: 3;
 }
 
@@ -463,7 +462,7 @@ label>input[type="checkbox"]:checked+*::before {
   background-color: var(--backg-color-input-container);
   border-radius: 0.5rem;
   width: calc(100% - 2rem);
-  transition: all 200ms ease-in;
+  transition: all 100ms ease-in;
 }
 
 .add-container.show-add-modal>.add-wrapper {
@@ -551,7 +550,7 @@ label>input[type="checkbox"]:checked+*::before {
 
 .msg-container {
   display: grid;
-  grid-template-rows: 5fr 0.5fr;
+  grid-template-rows: .5fr 5fr 0.5fr;
 }
 
 .chating-with {
@@ -659,7 +658,7 @@ label>input[type="checkbox"]:checked+*::before {
 
 .conversation-container {
   background-color: var(--back-color-contact);
-  height: calc(100vh - 4rem);
+  height:100%;
   width: 100%;
   position: absolute;
   z-index: 3;

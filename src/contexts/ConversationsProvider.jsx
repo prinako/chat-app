@@ -11,7 +11,7 @@ export function useConversations() {
 
 export function ConversationProvider({ id, children }) {
   const [conversations, setConversations] = useLocalStorage("conversation", []);
-  const [selectedConversationIndex, setSelectedConversationIndex] = useState(0);
+  const [selectedConversationIndex, setSelectedConversationIndex] = useState();
 
   const { contacts } = useContacts();
   const socket = useSocket();
@@ -90,6 +90,7 @@ export function ConversationProvider({ id, children }) {
 
   const value = {
     conversations: formattedConversations,
+    selectedConversation: formattedConversations[selectedConversationIndex],
     sendMessage,
     selectConversationIndex: setSelectedConversationIndex,
     createNewConversation,
