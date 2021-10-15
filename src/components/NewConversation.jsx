@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ContactBubble from "../utilities/ContactBubble";
 import { useContacts } from "../contexts/ContactsProvider";
 import { useConversations } from "../contexts/ConversationsProvider";
@@ -14,35 +14,20 @@ export default function NewConversation({
   const { contacts } = useContacts();
   const { conversations, createNewConversation } = useConversations();
 
-  function createConversation() {
-    console.log(selectedContactIds);
-    console.log("hi ", conversations.recipients)
-    createNewConversation(selectedContactIds);
-  }
-useEffect(()=>{
-  createNewConversation(selectedContactIds);
-},[selectedContactIds])
+  function createConversation(contactid) {
+    const recipients = conversations.map((c) => c.recipients);
+    const allContactsId = recipients.map((r) => r[0].id);
 
-  function handleOnClick(contactid) {
-    const recipients = conversations.map(c=>c.recipients)
-    console.log("hi ", recipients)
-    console.log(recipients.includes(contactid));
-    console.log(contactid);
-
-    setSelectedContactIds((prevSelectedContactsIds) => {
-      if (recipients.includes(contactid)) {
-        return recipients.filter((prevId) => {
-          console.log("yoo", prevId)
-          return contactid !== prevId;
-        });
-      } else {
-        return [contactid];
-      }
-    });
-    if(selectedContactIds.length !== 0){
+    if (allContactsId.includes(contactid)) {
+      alert("contact is already added");
+    } else {
+      createNewConversation(selectedContactIds);
     }
-    console.log("not" ,selectedContactIds.length)
+    return closeConversationModal();
+  }
 
+  function handleOnMouseOver(contactid) {
+    setSelectedContactIds(() => [contactid]);
   }
 
   return (
@@ -72,7 +57,10 @@ useEffect(()=>{
             return (
               <ContactBubble
                 onClick={() => {
-                  handleOnClick(contact.id);
+                  createConversation(contact.id);
+                }}
+                onMouseOver={() => {
+                  handleOnMouseOver(contact.id);
                 }}
                 role="button"
                 key={contact.id}

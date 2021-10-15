@@ -5,6 +5,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import { SocketProvider } from "../contexts/SocketProvider";
 import { ContactsProvider } from "../contexts/ContactsProvider";
 import { ConversationProvider } from "../contexts/ConversationsProvider";
+import { GroupsProvider } from "../contexts/GroupsProvider";
 
 export default function App() {
   const [id, setId] = useLocalStorage("id");
@@ -12,9 +13,11 @@ export default function App() {
   const dashboard = (
     <SocketProvider id={id}>
       <ContactsProvider>
-        <ConversationProvider id={id}>
-          <Chat id={id} />;
-        </ConversationProvider>
+        <GroupsProvider id={id}>
+          <ConversationProvider id={id}>
+            <Chat id={id} />;
+          </ConversationProvider>
+        </GroupsProvider>
       </ContactsProvider>
     </SocketProvider>
   );

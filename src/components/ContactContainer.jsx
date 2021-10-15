@@ -7,6 +7,7 @@ import Groups from "./Groups";
 import Conversations from "./Conversations";
 import AddContactModal from "./AddContactModal";
 import NewConversation from "./NewConversation";
+import NewGroup from "./NewGroup";
 
 export default function ContactContainer({ id }) {
   const [showAddModal, setShowAddModal] = useState(false);
@@ -23,6 +24,10 @@ export default function ContactContainer({ id }) {
 
   function handleOnConversationModal() {
     setShowConversationModal((prev) => !prev);
+  }
+
+  function handleOnGroupModal(){
+    setShowGroupModal(prev => !prev);
   }
 
   function handleDisplayConversation() {
@@ -65,6 +70,7 @@ export default function ContactContainer({ id }) {
       <CreateGroup
         openAddContactModal={handleOnAddModal}
         openConversationModal={handleOnConversationModal}
+        openGroupModal={handleOnGroupModal}
         activeConversation={displayConversation}
         activeGroup={displayGroup}
         activeContact={displayContact}
@@ -89,6 +95,9 @@ export default function ContactContainer({ id }) {
           closeConversationModal={handleOnConversationModal}
           openAddContactModal={handleOnAddModal}
         />
+      )}
+      {showGroupModal && (
+        <NewGroup closeGroupModal={handleOnGroupModal} />
       )}
       {contactDashboard}
     </div>
