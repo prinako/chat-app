@@ -34,10 +34,12 @@ export default function ChatRoom() {
     <div className="msg-container">
       <ChatRoomNavBar />
       <div className="chat-arear">
-        <MessageContainer
-          selectedGroup={selectedGroup}
-          selectedConversation={selectedConversation}
-        />
+        <div className="chat-flex">
+          <MessageContainer
+            selectedGroup={selectedGroup}
+            selectedConversation={selectedConversation}
+          />
+        </div>
       </div>
       <form className="input-container" onSubmit={handleOnChange}>
         <Textarea
