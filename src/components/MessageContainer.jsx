@@ -13,7 +13,6 @@ export default function MessageContainer({
 
   return (
     <React.StrictMode>
-      Right siad
       {selectedConversation
         ? selectedConversation.messages.map((mes, index) => {
             const lastMessage =
@@ -24,7 +23,7 @@ export default function MessageContainer({
                 key={index.toString()}
                 id={index}
                 className={`message-bubble  ${
-                  mes.forMe ? "message-bubble-sended" : ""
+                  mes.forMe ? "message-bubble-sended" : "message-bubble-recived"
                 }`}
               >
                 <MessageBubble
@@ -48,7 +47,7 @@ export default function MessageContainer({
                 key={index.toString()}
                 id={index}
                 className={`message-bubble  ${
-                  mes.forMe ? "message-bubble-sended" : ""
+                  mes.forMe ? "message-bubble-sended" : "message-bubble-recived"
                 }`}
               >
                 <MessageBubble
