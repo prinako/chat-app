@@ -25,7 +25,7 @@ export default function ChatRoomNavbar() {
         <span className="text">
           {selectedConversation
             ? selectedConversation.recipients.map((r) => r.name).join(", ")
-            : selectedGroup.recipients.map((r) => r.name).join(", ")}
+            : selectedGroup.groupName}
         </span>
       </div>
       <div className="call-container">

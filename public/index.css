@@ -39,6 +39,9 @@ body {
   margin-top: 2rem;
 }
 
+.mt-05{
+ margin-top: 0.5rem;
+}
 .ml-05 {
   margin-left: 0.5rem;
 }
@@ -158,6 +161,7 @@ label>input[type="checkbox"]:checked+*::before {
   color: var(--backg-color-chat-arear);
   background-color: transparent;
 }
+
 
 .notifiy-contaner {
   width: 100%;
@@ -483,16 +487,16 @@ label>input[type="checkbox"]:checked+*::before {
   font-size: 18px;
 }
 
-.add-input-container input {
+.input {
   border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  padding: 0.2rem 1rem;
   font-size: 17px;
-  height: 3rem;
+  height: 2.5rem;
   outline: none;
 }
 
-.add-input-container input:focus {
+.input:focus {
   border: solid 1px var(--back-color-contact);
 }
 
@@ -530,7 +534,6 @@ label>input[type="checkbox"]:checked+*::before {
 
 .hist-contacts {
   background-color: var(--text-color-1);
-  border-right: 1px solid var(--back-color-contact);
   overflow-y: auto;
 }
 
@@ -588,6 +591,7 @@ label>input[type="checkbox"]:checked+*::before {
   align-self: end;
   align-items: end;
 }
+
 .message-bubble-recived {
   align-items: start;
 }
@@ -637,7 +641,7 @@ label>input[type="checkbox"]:checked+*::before {
   justify-content: space-around;
 }
 
-.input {
+.write-message {
   border: 1px solid var(--back-color-contact);
   border-radius: 1rem;
   padding: 0.5rem 1rem;
@@ -678,10 +682,33 @@ label>input[type="checkbox"]:checked+*::before {
 }
 
 .group-conversation-wrapper {
-  display: grid;
-  grid-template-rows: 0.5fr 5fr .5fr;
+  display: flex;
+  flex-direction: column;
   position: relative;
   height: 100%;
+}
+
+.group-conversation-wrapper .hist-contacts {
+  flex: 1;
+}
+
+.group-conversation-wrapper .btn{
+  font-size: 16px;
+  height: 3rem;
+}
+
+.group-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--text-color-1);
+  padding:0 0.5rem 0.5rem 0.5rem;
+}
+
+.group-name input {
+  border: solid 1px;
+  width: 100%;
 }
 
 .conversation-container .hist-contacts {

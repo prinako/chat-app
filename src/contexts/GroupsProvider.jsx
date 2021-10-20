@@ -16,15 +16,14 @@ export function GroupsProvider({ id, children }) {
   const { contacts } = useContacts();
   const socket = useSocket();
 
-  function createNewGroup(recipients) {
-    console.log(recipients)
+  function createNewGroup(recipients, groupName) {
     setGroups((prevGroups) => {
-      return [...prevGroups, { recipients, messages: [] }];
+      return [...prevGroups, { recipients, messages: [], groupName }];
     });
   }
 
   const addMessageToGroup = useCallback(
-    ({ recipients, text, sender }) => {
+    ({ recipients, text, sender, groupName}) => {
       setGroups((prevGroups) => {
         let madeChange = false;
 
@@ -44,7 +43,7 @@ export function GroupsProvider({ id, children }) {
         if (madeChange) {
           return newGroups;
         } else {
-          return [...prevGroups, { recipients, messages: [newMessage] }];
+          return [...prevGroups, { recipients, messages: [newMessage], groupName }];
         }
       });
     },
@@ -53,16 +52,15 @@ export function GroupsProvider({ id, children }) {
 
   useEffect(() => {
     if (socket == null) {
-      console.log("socket is null");
       return;
     }
 
-    socket.on("receive-message", addMessageToGroup);
-    return () => socket.off("receive-message");
+    socket.on("receive-group-message", addMessageToGroup);
+    return () => socket.off("receive-group-message");
   }, [socket, addMessageToGroup]);
 
-  function sendMessageToGroup(recipients, text) {
-    socket.emit("send-message", { recipients, text });
+  function sendMessageToGroup(recipients, text, groupName) {
+    socket.emit("send-group-message", { recipients, text, groupName });
 
     addMessageToGroup({ recipients, text, sender: id });
   }

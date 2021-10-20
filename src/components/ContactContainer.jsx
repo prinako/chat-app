@@ -23,8 +23,6 @@ export default function ContactContainer({ id }) {
   const { selectedConversation } = useConversations();
   const { selectedGroup } = useGroups();
 
-  console.log(selectedConversation);
-
   function handleOnAddModal() {
     setShowAddModal((prev) => !prev);
   }
@@ -57,7 +55,7 @@ export default function ContactContainer({ id }) {
     displayConversation && setDisplayConversation(false);
     displayContact && setDisplayContact(false);
   }
-  console.log(!selectedGroup && !selectedConversation )
+
   const contactDashboard = (
     <React.StrictMode>
       <ContactNavBar />
@@ -87,7 +85,8 @@ export default function ContactContainer({ id }) {
   );
   return (
     <div
-      className={`contact-container ${(!selectedGroup && !selectedConversation ) && "show"
+      className={`contact-container ${
+        !selectedGroup && !selectedConversation && "show"
       } ${displayConversation && "on-conversation"}`}
     >
       {showAddModal && (

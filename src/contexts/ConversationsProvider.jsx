@@ -53,7 +53,6 @@ export function ConversationProvider({ id, children }) {
 
   useEffect(() => {
     if (socket == null) {
-      console.log("socket is null");
       return;
     }
 

@@ -29,7 +29,7 @@ export default function AddContactModal({
           <div className="add-input-container">
             <Input
               refs={userNameRef}
-              className="user-name"
+              className="input"
               labelClassName="label"
               label="Name"
               id="user-name"
@@ -39,7 +39,7 @@ export default function AddContactModal({
             />
             <Input
               refs={userIdRef}
-              className="user-name"
+              className="input"
               id="user-id"
               labelClassName="label"
               label="ID"
