@@ -7,7 +7,6 @@ import { useGroups } from "../contexts/GroupsProvider";
 export default function Chat({ id }) {
   const { selectedConversation } = useConversations();
   const { selectedGroup } = useGroups();
-  console.log(selectedGroup);
 
   return (
     <div className="msg-arear">

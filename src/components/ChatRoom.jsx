@@ -11,7 +11,6 @@ export default function ChatRoom() {
   const [text, setText] = useState("");
 
   const { sendMessage, selectedConversation } = useConversations();
-
   const { sendMessageToGroup, selectedGroup } = useGroups();
 
   function handleOnChange(e) {
@@ -24,7 +23,7 @@ export default function ChatRoom() {
         )
       : sendMessageToGroup(
           selectedGroup.recipients.map((r) => r.id),
-          text
+          text, selectedGroup.groupName
         );
 
     setText("");

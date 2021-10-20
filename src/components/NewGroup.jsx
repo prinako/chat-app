@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Button from "../utilities/Button";
 import CheckBox from "../utilities/CheckBox";
+import Input from "../utilities/Input";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useContacts } from "../contexts/ContactsProvider";
 import { useGroups } from "../contexts/GroupsProvider";
@@ -9,10 +10,11 @@ export default function NewGroup({ closeGroupModal }) {
   const [selectedContactIds, setSelectedContactIds] = useState([]);
   const { contacts } = useContacts();
   const { createNewGroup } = useGroups();
+  const groupNaneRef = useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
-    createNewGroup(selectedContactIds);
+    createNewGroup(selectedContactIds, groupNaneRef.current.value);
     closeGroupModal();
   }
 
@@ -41,6 +43,18 @@ export default function NewGroup({ closeGroupModal }) {
             <div className="brand">
               <span className="text">New Group</span>
             </div>
+          </div>
+          <div className="group-name">
+            <Input
+              refs={groupNaneRef}
+              className="input mt-05"
+              id="group-name"
+              required="required"
+              placeholder="Group Name ..."
+              label="Group Name:"
+              labelClassName="label"
+              htmlFor="group-name"
+            />
           </div>
           <div className="hist-contacts">
             {contacts.map((contact) => {
