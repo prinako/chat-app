@@ -18,7 +18,7 @@ export default function ChatRoomNavbar() {
             ? selectConversationIndex("")
             : selectGroupIndex("")
         }
-        className={`btn`}
+        className={`btn menu`}
         text={<ArrowBackIcon />}
       />
       <div className="brand">

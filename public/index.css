@@ -21,8 +21,8 @@
   --notifiy-msg-backg: #dfeeea;
   --bottom-line-color: #acacac;
   --send-msg-back-color: #3DB2FF;
-  --chat-background-image: url("https://www.transparenttextures.com/patterns/connected.png");
-  --contact-background-image: url("https://www.transparenttextures.com/patterns/az-subtle.png");
+  --chat-background-image: url();
+  --contact-background-image: url();
 }
 
 html {
@@ -329,30 +329,9 @@ label>input[type="checkbox"]:checked+*::before {
 }
 
 .menu {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 3.5rem;
-  width: 3.5rem;
   transition: all 100ms ease-out;
-  transform: translateX(-200px);
-  pointer-events: none;
-  opacity: 0;
-}
-
-.menu .menu-arrow {
-  color: var(--text-color-1);
-  font-size: 25px;
-}
-
-.show-menu {
-  pointer-events: unset;
-  position: static;
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .brand {
@@ -767,9 +746,5 @@ label>input[type="checkbox"]:checked+*::before {
     justify-content: center;
     width: 100%;
     padding: 0.5rem 0;
-  }
-
-  .conversation-title button {
-    color: transparent;
   }
 }
